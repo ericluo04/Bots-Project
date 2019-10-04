@@ -8,7 +8,7 @@ Here are some helpful tips for getting started with Nicolas' code:
 - install [anaconda](https://www.anaconda.com/distribution/)
 - open anaconda prompt and type: "pip install twython" and "pip install tweepy"
 - fill in the twitter_credentials.py file, but delete all the hashtags at the beginning (so you're left with just four lines of credentials)
-- I recommend using search.py. Be sure to change the start_date and end_date variables in the code appropriately. A free developer account only lets you scrape back seven days. Also, the scraping will often time out after 15 minutes, so it may be best practice to run this code (with the updated date ranges) daily to capture as many of the requested tweets as possible within a single session. 
+- I recommend using search.py. Be sure to change the start_date and end_date variables in the code appropriately. A free developer account only lets you scrape back seven days. The scraping will often time out after 15 minutes, so it may be best practice to run this code (with the updated date ranges) daily to capture as many of the requested tweets as possible within a single session. 
 - Below are sample scripts in anaconda prompt I used to scrape tweets
 ```
 cd "C:\Users\ericluo04\Desktop\Yale Files\2019-2020 Files of Yale\S&DS 491\1. HK Dataset\Query_twitter_data-master"
