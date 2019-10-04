@@ -3,7 +3,7 @@
 ## Scraping Tweets
 To scrape data and store tweets in a format compatible with the code in this repository, please follow the steps listed [here](https://github.com/NicolasGDM/Query_twitter_data).
 
-Here are some helpful tips for going through Nicolas' code:
+Here are some helpful tips for getting started with Nicolas' code:
 - Apply for a Twitter developer account! Once you've been approved, go [here](https://developer.twitter.com/en/apps), create an app, click on app details, and generate keys and tokens
 - install [anaconda](https://www.anaconda.com/distribution/)
 - open anaconda prompt and type: "pip install twython" and "pip install tweepy"
