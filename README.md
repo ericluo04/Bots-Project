@@ -14,7 +14,7 @@ Here are some helpful tips for getting started with Nicolas' code:
 - Below are sample scripts in anaconda prompt to run the code
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
-python search.py twitter_credentials.py hashtags "HK English" hongkong hkProtest hkprotests HongKongProtests hongkongprotest HongKongers
+python search.py twitter_credentials.py hashtags "HK English" hongkong hkprotest hkprotests hongkongprotests hongkongprotest hongkongers
 ```
 ## Labeling Tweets
 
