@@ -16,7 +16,7 @@ python search.py twitter_credentials.py hashtags "HK English" hongkong hkProtest
 ```
 ## Labeling Tweets
 
-1. Your data should be in a .db (SQLite) format. Convert these files using "import_all.py" in the "sqlite-to-json" folder. Change the path variable in the python file, then do something like as follows:
+1. Your data should be in a .db (SQLite) format. Convert these files to .json using "import_all.py" in the "sqlite-to-json" folder. Change the path variable in the python file, then run the code below in anaconda prompt (after changing the directory in the first line. 
 ```
 cd "C:\Users\ericluo04\Desktop\Yale Files\2019-2020 Files of Yale\S&DS 491\2. HK Training\sqlite-to-json"
 python import_all.py
