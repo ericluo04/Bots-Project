@@ -1,0 +1,141 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf200
+{\fonttbl\f0\fnil\fcharset0 HelveticaNeue;\f1\fmodern\fcharset0 Courier;}
+{\colortbl;\red255\green255\blue255;\red53\green53\blue53;\red255\green255\blue255;}
+{\*\expandedcolortbl;;\cssrgb\c27059\c27059\c27059;\cssrgb\c100000\c100000\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab560
+\pard\pardeftab560\slleading20\partightenfactor0
+
+\f0\fs24 \cf2 \
+#presidenttrump \
+#gop \
+#taxcuts \
+#taxreform \
+#nobama \
+#trump2016 \
+#makeamericagreatagain \
+#feelthebern \
+#killaryclinton \
+#crookedhillary \
+#maga \
+#donaldtrump2016 \
+#libtards \
+#conservative \
+#liberal \
+#republican \
+#obamasucks \
+#voterepublican \
+#donaldtrump \
+#guns \
+#2ndammendment \
+#2a  \
+#presidenttrump \
+#presidentdonaldtrump \
+#votetrump \
+#votedonald \
+#votedonaldtrump  \
+#republican \
+#maga \
+#makeamericagreatagain \
+#buildthatwall \
+#draintheswamp \
+#conservative \
+#trumptrain\
+#nevertrump\
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs28 \cf0 \cb3 \expnd0\expndtw0\kerning0
+'MAGA',\
+ '2A',\
+ 'AmericaFirst',\
+ 'TrumpTrain',\
+ 'NRA',\
+ '1A',\
+ 'Trump',\
+ 'FeelTheBern',\
+ 'DrainTheSwamp',\
+ 'MakeAmericaGreatAgain',\
+ 'Trump2016',\
+ 'Conservative',\
+ 'Trump2020',\
+ 'Christian',\
+ 'tcot',\
+ 'BlueLivesMatter',\
+ 'PresidentTrump',\
+ 'BuildTheWall',\
+ 'TRUMP',\
+ 'ProLife',\
+ 'NeverHillary',\
+ 'TCOT',\
+ 'Patriot',\
+ 'DemExit',\
+ 'CCOT',\
+ 'TheResistance',\
+ 'USA',\
+ 'SethRich',\
+ 'Deplorable',\
+ 'Israel',\
+ 'PJNET',\
+ 'Constitution',\
+ 'BackTheBlue',\
+ 'Military',\
+ 'OurRevolution',\
+ 'AllLivesMatter',\
+ 'Vets',\
+ 'USAF',\
+ 'TGDN',\
+ 'TrumpPence',\
+ 'POTUS',\
+ 'TrumpPence16',\
+ 'ImWithYou',\
+ 'NoDAPL',\
+ 'MolonLabe',\
+ 'Covfefe',\
+ 'UniteBlue',\
+ 'Republican',\
+ 'maga',\
+ 'Resist',\
+ 'GOP',\
+ 'ccot',\
+ 'LockHerUp',\
+ 'RedNationRising',\
+ 'Bernie2020',\
+ 'BoycottNFL',\
+ 'TRUMP2016',\
+ 'Benghazi',\
+ 'Veteran',\
+ 'LNYHBT',\
+ 'IStandWithIsrael',\
+ 'BlackLivesMatter',\
+ 'TrumpPence2016',\
+ 'conservative',\
+ 'prolife',\
+ 'Veterans',\
+ 'Liberal',\
+ 'DraftBernie',\
+ 'TRUMP2020',\
+ 'StillWithHer',\
+ 'FakeNews',\
+ 'FeeltheBern',\
+ 'Catholic',\
+ 'Prolife',\
+ 'BanIslam',\
+ 'ProIsrael',\
+ '2a',\
+ 'feelthebern',\
+ 'Liberty',\
+ 'America1st',\
+ 'TeaParty',\
+ 'NotMeUs',\
+ 'TrumpPence2020',\
+ 'StillSanders',\
+ 'AMERICAFIRST',\
+ 'BernieOrBust',\
+ 'Family',\
+ 'TRUMPTRAIN',\
+ 'DraintheSwamp',\
+ 'draintheswamp',\
+ 'NotMyPresident',\
+ 'DTS',\
+ 'Jesus',\
+ 'MedicareForAll'}
