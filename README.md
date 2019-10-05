@@ -14,3 +14,6 @@ Here are some helpful tips for getting started with Nicolas' code:
 cd "C:\Users\ericluo04\Desktop\Yale Files\2019-2020 Files of Yale\S&DS 491\1. HK Dataset\Query_twitter_data-master"
 python search.py twitter_credentials.py hashtags "HK English" hongkong hkProtest hkprotests HongKongProtests hongkongprotest HongKongers
 ```
+## Labeling Tweets
+
+## Training the Neural Network
