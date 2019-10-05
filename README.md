@@ -24,6 +24,6 @@ cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\sqlite-
 python import_all.py
 ```
 
-2. Come up with your list of keywords for both pro/anti your topic and update the hashtags .csv files in the *labeling* folder. If you are using languages other than english, make sure to follow this process: select *Save As*, click on *Tools*, go to *Web Options*, select *Encoding*, and change to *Unicode (UTF-8)*. 
+2. Come up with your list of keywords for both pro/anti your topic and update the hashtags .csv files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. 
 
 ## Training the Neural Network
