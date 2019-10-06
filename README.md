@@ -3,7 +3,7 @@
 This repository will store the data the research team used to analyze tweets related to various topics. The code folder also includes my work analyzing the 2019 Hong Kong protests. Some of the code is a duplicate of Nicolas' code (without the twitter credentials file). It is placed here for ease of reference and completeness' sake. 
 
 ## Scraping Tweets (Folder 1) 
-To scrape and store tweets in a format compatible with the code in this repository, please follow the steps listed [here](https://github.com/NicolasGDM/Query_twitter_data).
+The first folder contains code to scrape and store tweets in a format compatible with the rest of this repository. This section draws almost completey from [here](https://github.com/NicolasGDM/Query_twitter_data). I made minor changes to fix errors and update the database appropriately. 
 
 Here are some helpful tips for getting started with Nicolas' code:
 - Apply for a Twitter developer account! Once you've been approved, go [here](https://developer.twitter.com/en/apps), create an app, click on app details, and generate your keys and tokens
