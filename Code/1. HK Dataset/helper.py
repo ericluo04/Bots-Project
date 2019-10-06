@@ -652,7 +652,7 @@ def queryAndInsertUsersProfilesThatPostedTheTweets(twitter, c, conn, today, inpu
 	
 	new_users = []
 
-	ids_of_users_that_posted_tweets = [tweet['user']['id_str'] for tweet in input_list_of_queried_tweets]
+	ids_of_users_that_posted_tweets = [tweet['user_id'] for tweet in input_list_of_queried_tweets]
 	unique_ids = np.unique(ids_of_users_that_posted_tweets)
 	users= [int(i) for i in unique_ids]
 	number_batch = int(len(users)/100)
