@@ -2,7 +2,7 @@
 
 This repository will store the data the research team used to analyze tweets related to various topics. The code folder also includes my work analyzing the 2019 Hong Kong protests. Some of the code is a duplicate of Nicolas' code (without the twitter credentials file). It is placed here for ease of reference and completeness' sake. 
 
-## Scraping Tweets (1) 
+## Scraping Tweets (Folder 1) 
 To scrape and store tweets in a format compatible with the code in this repository, please follow the steps listed [here](https://github.com/NicolasGDM/Query_twitter_data).
 
 Here are some helpful tips for getting started with Nicolas' code:
@@ -22,10 +22,10 @@ cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python search_userextraction.py twitter_credentials.py "HK English"
 ```
 
-## Labeling Tweets (2) 
+## Labeling Tweets (Folder 2) 
 
 1.
 
 2. Come up with your list of keywords for both pro/anti your topic and update the hashtags files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. 
 
-## Training the Neural Network (2) 
+## Training the Neural Network (Folder 2) 
