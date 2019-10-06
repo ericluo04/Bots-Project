@@ -33,9 +33,8 @@ create_tweet_tables(c,conn)
 # gets all tweets from the database
 def get_all_users( json_str = False ):
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name'] 
-    db = conn.cursor()
 
-    rows = db.execute('''
+    rows = c.execute('''
     SELECT * from tweet
     ''').fetchall()
 
