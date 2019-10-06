@@ -10,7 +10,7 @@ Here are some helpful tips for getting started with Nicolas' code:
 - Install [anaconda](https://www.anaconda.com/distribution/)
 - Open anaconda prompt and type: *pip install twython* and *pip install tweepy*
 - Fill in the twitter_credentials.py file, but delete all the hashtags at the beginning (so you're left with just four lines of credentials)
-- I recommend using search.py. Be sure to change the start_date and end_date variables in the code appropriately. A free developer account only lets you scrape back seven days. The scraping will often time out after 15 minutes, so it may be best practice to run this code (with the updated date ranges) daily to capture as many of the requested tweets as possible within a single session. The only cost for duplicate tweets or overlapping time ranges is time - the code uses dictionaries, which are by definition, constructed to be unique. 
+- I recommend using search.py. Be sure to change the start_date and end_date variables in the code appropriately. A free developer account only lets you scrape back seven days. The scraping will often time out after 15 minutes, so it may be best practice to run this code (with the updated date ranges) daily to capture as many of the requested tweets as possible within a single session. The only cost for duplicate tweets or overlapping time ranges is time - the code uses dictionaries which are, by definition, unique. 
 - Below are sample scripts in anaconda prompt to run the code.
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
