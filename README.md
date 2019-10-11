@@ -25,7 +25,7 @@ python search_userextraction.py twitter_credentials.py "HK English"
 
 ## Labeling Tweets (Folder 2) 
 
-1. Come up with your list of keywords for both pro/anti your topic and update the hashtags files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. https://hashtagify.me/hashtag/tbt was helpful for finding some of the more popular hashtags for my topic. 
+1. Come up with your list of keywords for both pro/anti your topic and update the hashtags files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. [This](https://hashtagify.me/hashtag/tbt) was helpful for finding some of the more popular hashtags for my topic. 
 
 2. Next, run the *Labeling Test.ipynb* file, replacing the DB variable with your .db file path. 
 
