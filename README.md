@@ -16,8 +16,8 @@ Here are some helpful tips for getting started with Nicolas' code:
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python search.py twitter_credentials.py hashtags "HK English" hongkong hkprotest hkprotests hongkongprotests hongkongprotest hongkongers
 ```
-- I scraped 1,094,038 tweets over the course of 20 days, though my topic was a hot issue on Twitter when I was scraping. For less active topics, scraping a sizeable amount of tweets may take longer. 
-- Your .db file contains 7 json files (or python dictionaries): tweet, tweet_hashtags, tweet_media, tweet_url, tweet_usermentions, user, and user_profile. At this point, the database only contains information about tweets. To fill in the user_profile json, use the search_userextraction.py I coded. Below are sample scripts in anaconda prompt to run the code. For 298,100 users, the code took approximately 50 minutes to run.
+- I scraped around one million tweets over the course of 20 days, though my topic was a hot issue on Twitter when I was scraping. For less active topics, scraping a sizeable amount of tweets may take longer. 
+- Your .db file contains 7 json files (or python dictionaries): tweet, tweet_hashtags, tweet_media, tweet_url, tweet_usermentions, user, and user_profile. At this point, the database only contains information about tweets. To fill in the user_profile json, use the search_userextraction.py I coded. Below are sample scripts in anaconda prompt to run the code. For around 300,000 users, the code took approximately 50 minutes to run.
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python search_userextraction.py twitter_credentials.py "HK English"
