@@ -22,7 +22,7 @@ python search.py twitter_credentials.py hashtags "HK English" hongkong hkprotest
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python search_userextraction.py twitter_credentials.py "HK English"
 ```
-- Now, we will export the two json files of interest (tweet and user_profile) from the .db file. Below are sample scripts in anaconda prompt to run the code. 
+- Now, we will export the two json files of interest (tweet and user_profile) from the .db file. They will appear in the same folder your .db file lives in. Below are sample scripts in anaconda prompt to run the code. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python export_tweets_users.py "HK English"
