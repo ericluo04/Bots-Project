@@ -17,23 +17,24 @@ python search.py twitter_credentials.py hashtags "HK English" hongkong hkprotest
 ```
 7. Your .db file contains 7 json files (or python dictionaries): tweet, tweet_hashtags, tweet_media, tweet_url, tweet_usermentions, user, and user_profile. At this point, the database only contains information about tweets. To fill in the user_profile json, use the search_userextraction.py I coded. For around 300,000 users, the code took approximately 50 minutes to run.
 ```
-cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python search_userextraction.py twitter_credentials.py "HK English"
 ```
 8. Now, we will export the two json files of interest (tweet and user_profile) from the .db file. They will appear in the same folder your .db file lives in. 
 ```
-cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset"
 python export_tweets_users.py "HK English"
 ```
 
 ## Labeling Tweets (Folder 2) 
 
 1. Come up with your list of keywords for both pro/anti your topic and update the hashtags files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. [This](https://hashtagify.me/hashtag/tbt) was helpful for finding some of the more popular hashtags for my topic. 
-
 2. Next, we will label your tweets based on whether they include pro/anti keywords. Be sure to change the file path at the top of the code, including the extra "\\" at the end of the string.  
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\labeling"
 python label.py
+```
+3. Balance your labeled tweets so that the number of pro and anti tweets are the same. 
+```
+python balance.py
 ```
 
 ## Training the Neural Network (Folder 2) 
