@@ -39,7 +39,7 @@ python balance.py
 
 ## Training the Neural Network (Folder 2) 
 1. Put the *labeled_data_balanced.csv* file in the Training>Data folder and rename it to *modeling_1.csv*.
-2. Now, train the LSTM model. 
+2. Now, train the CNN LSTM model. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
 python train.py
