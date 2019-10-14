@@ -27,15 +27,20 @@ def get_all_tweets( json_str = False ):
     db = conn.cursor()
 
     rows = db.execute('''
-    SELECT * from tweet
+    SELECT DISTINCT tweet_id, user_id, screen_name, text
+    from tweet
     ''').fetchall()
 
+    conn.commit()
+    
     if json_str:
         return [dict(ix) for ix in rows] #CREATE JSON
 
     return rows
 
 twtdata = get_all_tweets(json_str = True)
+
+print("Your database has " + str(len(twtdata)) + " tweets.")
 
 # save tweets as json file
 with open('./'+ db + '/tweet.json', 'w') as outfile:
@@ -49,7 +54,8 @@ def get_all_users( json_str = False ):
     db = conn.cursor()
 
     rows = db.execute('''
-    SELECT * from user_profile
+    SELECT *
+    from user_profile
     ''').fetchall()
 
     if json_str:
@@ -58,6 +64,8 @@ def get_all_users( json_str = False ):
     return rows
 
 userdata = get_all_users(json_str = True)
+
+print("Your database has " + str(len(userdata)) + " users.")
 
 # save user profiles as json file
 with open('./'+ db + '/user_profile.json', 'w') as outfile:

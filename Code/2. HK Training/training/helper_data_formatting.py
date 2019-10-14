@@ -73,14 +73,14 @@ def get_xy(n, save = False):
         twt = data.iloc[i]
         a = clean(twt['tweet'])
         if a != None:
-            l.append([a.split(), twt['pro/anti']])
+            l.append([a.split(), twt['label']])
 
 
 
     # In[247]:
 
     print('making dictionaries for non-segment')
-    d_id = pd.DataFrame(l, columns = ['twt', 'pro/anti'])
+    d_id = pd.DataFrame(l, columns = ['twt', 'label'])
     dictionary = corpora.Dictionary(d_id.twt)
     dictionary.save('Dictionary/dic.txt')
     #dictionary = corpora.Dictionary.load('dic.txt')
@@ -101,13 +101,13 @@ def get_xy(n, save = False):
         twt = data.iloc[i]
         a = clean(twt['tweet_s'])
         if a != None:
-            l.append([a.split(), twt['pro/anti']])
+            l.append([a.split(), twt['label']])
 
 
     # In[249]:
 
     print('making dictionaries for segment')
-    d_id_s = pd.DataFrame(l, columns = ['twt', 'pro/anti'])
+    d_id_s = pd.DataFrame(l, columns = ['twt', 'label'])
     dictionary_s = corpora.Dictionary(d_id_s.twt)
     dictionary_s.save('Dictionary/dic_s.txt')
     print('dic made')                
@@ -118,11 +118,11 @@ def get_xy(n, save = False):
 
     mean_length = d_id.twt.apply(lambda x: len(x)).mean()
     sd_length = d_id.twt.apply(lambda x: len(x)).std()
-    seq_len = int(np.round((mean_length + 2*sd_length)))
+    seq_len = np.round((mean_length + 2*sd_length)).astype(int)
 
     mean_length = d_id_s.twt.apply(lambda x: len(x)).mean()
     sd_length = d_id_s.twt.apply(lambda x: len(x)).std()
-    seq_len_s = int(np.round((mean_length + 2*sd_length)))
+    seq_len_s = np.round((mean_length + 2*sd_length)).astype(int)
 
     #we choose the bigger sequence length
     seq_len = max(seq_len, seq_len_s)
@@ -171,12 +171,12 @@ def get_xy(n, save = False):
 
     print('making X and Y ... ')
     X = np.vstack(d_id.twt.apply(lambda x : x[0]).values)
-    Y = np.array(d_id['pro/anti'])
+    Y = np.array(d_id['label'])
     print('X matrix: ', X.shape)
     print('Y vector: ', Y.shape)
 
     X_s = np.vstack(d_id_s.twt.apply(lambda x : x[0]).values)
-    Y_s = np.array(d_id_s['pro/anti'])
+    Y_s = np.array(d_id_s['label'])
     print('Xs matrix: ', X_s.shape)
     print('Ys vector: ', Y_s.shape)
 

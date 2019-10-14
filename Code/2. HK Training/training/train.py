@@ -85,7 +85,8 @@ es = EarlyStopping(monitor='val_loss',
 outputFolder = './model-checkpoint'
 if not os.path.exists(outputFolder):
     os.makedirs(outputFolder)
-filepath=outputFolder+ "/weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+#filepath=outputFolder+ "/weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
+filepath=outputFolder+ "/weights-improvement-{epoch:02d}.hdf5"
 save = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
 #input1
 inputs1 = Input(shape=(seq_len,))
@@ -122,7 +123,7 @@ model.fit([train_X, train_X_s], train_Y, epochs=100, batch_size=256, callbacks=[
 
 print('testing ...')
 test_pred = model.predict([test_X, test_X_s])
-test_pred = int(test_pred[:,0] <= 0.5)
+test_pred = (test_pred[:,0] <= 0.5).astype(int)
 
 
 # ## Performance
