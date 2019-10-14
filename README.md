@@ -31,7 +31,7 @@ python export_tweets_users.py "HK English"
 
 1. Come up with your list of keywords for both pro/anti your topic and update the hashtags files in the *labeling* folder. If you are using languages other than english, make sure to use .txt files (rather than .csv) to use the right UTF-8 encoding. [This](https://hashtagify.me/hashtag/tbt) was helpful for finding some of the more popular hashtags for my topic. 
 
-2. Next, we will label your tweets based on whether they include pro/anti keywords. Be sure to change the file path at the top of the code, including the extra "\" at the end of the string.  
+2. Next, we will label your tweets based on whether they include pro/anti keywords. Be sure to change the file path at the top of the code, including the extra "\\" at the end of the string.  
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\labeling"
 python label.py
