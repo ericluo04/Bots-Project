@@ -37,3 +37,7 @@ python label.py
 ```
 
 ## Training the Neural Network (Folder 2) 
+```
+cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
+python train.py
+```
