@@ -122,7 +122,7 @@ model.fit([train_X, train_X_s], train_Y, epochs=100, batch_size=256, callbacks=[
 
 print('testing ...')
 test_pred = model.predict([test_X, test_X_s])
-test_pred = (test_pred[:,0] <= 0.5).astype(int)
+test_pred = int(test_pred[:,0] <= 0.5)
 
 
 # ## Performance

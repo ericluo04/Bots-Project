@@ -317,7 +317,7 @@ def getAndInsertTweetsByHashtag(twitter, query, start_date, end_date, earliestTw
 
 	except TwythonRateLimitError:
 		print("Too many requests, go sleep for a while")
-		print("Will start insterting tweets in the meatime, got ", len(tweets), " to insert")
+		print("Will start inserting tweets in the meatime, got ", len(tweets), " to insert")
 		insertTweets(conn,c, tweets)
 		tweets = []
 		time.sleep(15*60+30)
@@ -356,7 +356,7 @@ def getAndInsertTweetsByHashtag(twitter, query, start_date, end_date, earliestTw
 
 		except TwythonRateLimitError:
 			print("Too many requests, go sleep for a while")
-			print("Will start insterting tweets in the meatimee, got ", len(tweets), " to insert")
+			print("Will start inserting tweets in the meatime, got ", len(tweets), " to insert")
 			insertTweets(conn,c, tweets)
 			tweets = []			
 			time.sleep(15*60+30)
@@ -372,7 +372,7 @@ def getAndInsertTweetsByHashtag(twitter, query, start_date, end_date, earliestTw
 			
 			except TwythonError:
 				break;
-	print("Insterting final batch of tweets. got ", len(tweets), " to insert")
+	print("Inserting final batch of tweets. got ", len(tweets), " to insert")
 	insertTweets(conn,c, tweets)
 
 def getAndInsertTweetsWithPicsByLocation(twitter, start_date, end_date, earliestTweet, latestTweet, max_tweets, conn, c, today):
@@ -391,7 +391,7 @@ def getAndInsertTweetsWithPicsByLocation(twitter, start_date, end_date, earliest
 
 	except TwythonRateLimitError:
 		print("Too many requests, go sleep for a while")
-		print("Will start insterting tweets in the meatime, got ", len(tweets), " to insert")
+		print("Will start inserting tweets in the meatime, got ", len(tweets), " to insert")
 		insertTweets(conn,c, tweets)
 		tweets = []
 		time.sleep(15*60+30)
@@ -430,7 +430,7 @@ def getAndInsertTweetsWithPicsByLocation(twitter, start_date, end_date, earliest
 
 		except TwythonRateLimitError:
 			print("Too many requests, go sleep for a while")
-			print("Will start insterting tweets in the meatimee, got ", len(tweets), " to insert")
+			print("Will start inserting tweets in the meantime, got ", len(tweets), " to insert")
 			insertTweets(conn,c, tweets)
 			tweets = []			
 			time.sleep(15*60+30)
@@ -446,7 +446,7 @@ def getAndInsertTweetsWithPicsByLocation(twitter, start_date, end_date, earliest
 			
 			except TwythonError:
 				break;
-	print("Insterting final batch of tweets. got ", len(tweets), " to insert")
+	print("Inserting final batch of tweets. got ", len(tweets), " to insert")
 	insertTweets(conn,c, tweets)
 
 
@@ -535,7 +535,7 @@ def queryUsersProfiles(twitter, input_list_users_ids):
 	profiles=[]
 
 	for i in range(0,number_batch+1):
-		print("Querying batch n ", i, " on ", number_batch)
+		print("Querying batch", i, "out of", number_batch)
 		try :
 			results = twitter.lookup_user(user_id=users[i*100:(i+1)*100])
 			profiles += results
@@ -568,7 +568,7 @@ def queryAndInsertUsersProfilesForTrack(twitter, c, conn, today, input_list_user
 	profiles=[]
 	new=[]
 	for i in range(0,number_batch+1):
-		print("Querying batch n ", i, " on ", number_batch)
+		print("Querying batch", i, "out of", number_batch)
 		try :
 			results = twitter.lookup_user(user_id=users[i*100:(i+1)*100])
 			profiles += results
@@ -603,7 +603,7 @@ def queryAndInsertUsersProfiles(twitter, c, conn, today, input_list_users_ids):
 	profiles=[]
 	new=[]
 	for i in range(0,number_batch+1):
-		print("Querying batch n ", i, " on ", number_batch)
+		print("Querying batch", i, "out of", number_batch)
 		try :
 			results = twitter.lookup_user(user_id=users[i*100:(i+1)*100])
 			profiles += results
@@ -660,7 +660,7 @@ def queryAndInsertUsersProfilesThatPostedTheTweets(twitter, c, conn, today, inpu
 	profiles=[]
 	new=[]
 	for i in range(0,number_batch+1):
-		print("Querying batch n ", i, " on ", number_batch)
+		print("Querying batch", i, "out of", number_batch)
 		try :
 			results = twitter.lookup_user(user_id=users[i*100:(i+1)*100])
 			profiles += results

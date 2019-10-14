@@ -7,6 +7,7 @@ import sqlite3
 from operator import itemgetter
 import sys 
 import os
+import json
 
 credentials=sys.argv[1]
 db = sys.argv[2]
@@ -33,13 +34,14 @@ create_tweet_tables(c,conn)
 # gets all tweets from the database
 def get_all_users( json_str = False ):
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name'] 
+    db = conn.cursor()
 
-    rows = c.execute('''
+    rows = db.execute('''
     SELECT * from tweet
     ''').fetchall()
 
-    conn.commit()
-    conn.close()
+    #conn.commit()
+    #conn.close()
 
     if json_str:
         return [dict(ix) for ix in rows] #CREATE JSON
@@ -52,5 +54,7 @@ twtdata = get_all_users(json_str = True)
 #####################################
 ######## Query user profiles ########
 #####################################
+today=datetime.now()
+
 print('Now querying profiles of people that posted the tweets')
 queryAndInsertUsersProfilesThatPostedTheTweets(twitter, c, conn, today, twtdata)

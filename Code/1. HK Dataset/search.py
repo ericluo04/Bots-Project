@@ -48,15 +48,18 @@ create_tweet_tables(c,conn)
 
 
 #### TIME RECORD:
-#### 1. 9/16/2019-9/19/2019 (86,814 tweets)
-#### 2. 9/19/2019-9/22/2019 (380,193) tweets)
-#### 3. 9/23/2019-9/29/2019 (157,748) tweets)
-### 4. 9/30/2019-10/3/2019 (142,512 tweets)
-### 5. 9/30/2019-10/3/2019 (471,028 "chinese" tweets - likely picked up on english, japanese, and korean as well)
+#### 1. 9/16-9/19 (86,814 tweets)
+#### 2. 9/19-9/22 (380,193) tweets)
+#### 3. 9/23-9/29 (157,748) tweets)
+### 4. 9/30-10/3 (142,512 tweets)
+### 5. 9/30-10/3 (471,028 "chinese" tweets - likely picked up on english, japanese, and korean as well)
+### 6. 9/30-10/1 (364,244 tweets)
+### 7. 10/2-10/8 (485,432 tweets)
+### 8. 10/9-10/11 (855,808 tweets)
 today=datetime.now()
 today=datetime(today.year,today.month,today.day,0,0,0)
-start_date = datetime(year=2019, month=9, day=29) # or you can pick start_date = today
-end_date = start_date + timedelta(days=4) # or you can pick another end_date 
+start_date = datetime(year=2019, month=10, day=9) # or you can pick start_date = today
+end_date = start_date + timedelta(days=2) # or you can pick another end_date 
 earliestTweet=0 # or you can pick latest tweet from previous query
 latestTweet=-1
 
