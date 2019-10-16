@@ -85,9 +85,8 @@ es = EarlyStopping(monitor='val_loss',
 outputFolder = './model-checkpoint'
 if not os.path.exists(outputFolder):
     os.makedirs(outputFolder)
-#filepath=outputFolder+ "/weights-improvement-{epoch:02d}-{val_acc:.2f}.hdf5"
-filepath=outputFolder+ "/weights-improvement-{epoch:02d}.hdf5"
-save = ModelCheckpoint(filepath, monitor='val_acc', verbose=1, save_best_only=True, mode='max')
+filepath=outputFolder+ "/weights-improvement-{epoch:02d}-{val_accuracy:.2f}.hdf5"
+save = ModelCheckpoint(filepath, monitor='val_accuracy', verbose=1, save_best_only=True, mode='max')
 #input1
 inputs1 = Input(shape=(seq_len,))
 embedding1 = Embedding(dictionary_size + 1, 128)(inputs1)
@@ -114,7 +113,6 @@ print(model.summary())
 #plot_model(model, show_shapes=True, to_file='multichannel.png')
 model.fit([train_X, train_X_s], train_Y, epochs=100, batch_size=256, callbacks=[es, save], 
     validation_split=0.2)
-
 
 # ## Testing
 

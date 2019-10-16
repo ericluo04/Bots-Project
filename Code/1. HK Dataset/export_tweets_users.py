@@ -27,8 +27,7 @@ def get_all_tweets( json_str = False ):
     db = conn.cursor()
 
     rows = db.execute('''
-    SELECT DISTINCT tweet_id, user_id, screen_name, text
-    from tweet
+    SELECT * from tweet
     ''').fetchall()
 
     conn.commit()

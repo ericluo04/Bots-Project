@@ -34,7 +34,7 @@ print('the probability this tweet is democrat is ', dem_pol[0])
 
 #get list of files in our directory so we can loop through them 
 
-path = "C:\Users\ericluo04\Desktop\Yale Files\2019-2020 Files of Yale\S&DS 491\1. HK Dataset\Query_twitter_data-master\HK English"
+path = r"C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset\HK English"
 all_files = [f for f in listdir(path) if isfile(join(path, f))]
 
 print('files are: ', all_files)
@@ -89,7 +89,7 @@ count = 0. #to track how many batches of data we visited
 '''
 Choose the files you want below. (either use index or name as in the Hard Drive)
 '''
-int_files = [all_files[-4], all_files[-3]] #choose the files we want to mine through
+int_files = [all_files[1]] #choose the files we want to mine through
 
 print('files used: ', int_files)
 for file in int_files:
