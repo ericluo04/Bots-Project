@@ -32,7 +32,7 @@ def seperate(tweets):
         except:
             u = dict()
             #this user does not exist
-            #u['description'] = twt['user']['description']
+            u['description'] = twt['description']
             u['tweets'] = [twt['text']]
             users[id_] = u
     return(users)

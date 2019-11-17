@@ -7,6 +7,7 @@ import re
 import string
 from nltk.corpus import stopwords
 from keras.preprocessing import sequence
+from gensim import corpora
 
 #segmentation
 load()
@@ -38,7 +39,8 @@ def clean(twt):
 
 #transform takes a clean tweet and tokenize it
 #load dictionary
-dictionary = Dictionary.load_from_text('Dictionary/dic.txt')
+#dictionary = Dictionary.load_from_text('Dictionary/dic.txt')
+dictionary = corpora.Dictionary.load('Dictionary/dic.txt')
 def transform(twt, seq_len):
     twt = clean(twt).split()
     l = []
@@ -50,7 +52,8 @@ def transform(twt, seq_len):
     twt = sequence.pad_sequences([l], maxlen=seq_len)
     return(twt)
 #dictionary_s
-dictionary_s = Dictionary.load_from_text('Dictionary/dic_s.txt')
+#dictionary_s = Dictionary.load_from_text('Dictionary/dic_s.txt')
+dictionary_s = corpora.Dictionary.load('Dictionary/dic_s.txt')
 def transform_s(twt, seq_len):
     twt = clean(twt).split()
     l = []

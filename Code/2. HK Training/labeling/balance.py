@@ -2,6 +2,9 @@ import pandas as pd
 
 data = pd.read_csv('Data/labeled_tweets.csv', index_col = 0)
 data.columns = ['tweet', 'label']
+# dropping all rows with duplicate tweets
+data.drop_duplicates(subset = "tweet", keep = False, inplace = True) 
+
 #see how many are in each group
 anti = data.label.sum()
 pro = data.shape[0] - data.label.sum()

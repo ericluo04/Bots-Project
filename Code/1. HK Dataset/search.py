@@ -57,11 +57,13 @@ create_tweet_tables(c,conn)
 ### 7. 10/2-10/8 (485,432 tweets)
 ### 8. 10/9-10/11 (855,808 tweets)
 ### 9. 10/11-10/15
-### 10. 10/16-
+### 10. 10/16-10/23
+### 11. 10/24-10/26
+### 12. 10/27-11/3
 today=datetime.now()
 today=datetime(today.year,today.month,today.day,0,0,0)
-start_date = datetime(year=2019, month=10, day=16) # or you can pick start_date = today
-end_date = start_date + timedelta(days=2) # or you can pick another end_date 
+start_date = datetime(year=2019, month=10, day=27) # or you can pick start_date = today
+end_date = start_date + timedelta(days=7) # or you can pick another end_date 
 earliestTweet=0 # or you can pick latest tweet from previous query
 latestTweet=-1
 

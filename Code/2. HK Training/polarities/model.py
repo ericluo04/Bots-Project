@@ -10,9 +10,12 @@ from keras.layers.merge import concatenate
 from keras.models import Model
 
 from gensim.corpora import Dictionary
+from gensim import corpora
 
-dictionary = Dictionary.load_from_text('Dictionary/dic.txt')
-dictionary_s = Dictionary.load_from_text('Dictionary/dic_s.txt')
+#dictionary = Dictionary.load_from_text('Dictionary/dic.txt')
+dictionary = corpora.Dictionary.load('Dictionary/dic.txt')
+#dictionary_s = Dictionary.load_from_text('Dictionary/dic_s.txt')
+dictionary_s = corpora.Dictionary.load('Dictionary/dic_s.txt')
 
 # In[10]:
 dictionary_size = len(dictionary)

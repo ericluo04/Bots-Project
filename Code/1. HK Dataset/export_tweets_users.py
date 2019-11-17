@@ -22,12 +22,15 @@ create_tables(c,conn)
 create_tweet_tables(c,conn)
 
 # gets all tweets from the database
+# merge with user_profiles to get user description information as well
 def get_all_tweets( json_str = False ):
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name'] 
     db = conn.cursor()
 
     rows = db.execute('''
-    SELECT * from tweet
+    SELECT A.tweet_id, A.user_id, A.screen_name, A.created_at, A.text, A.lang, B.description
+    FROM tweet A
+    LEFT JOIN user_profile B on A.user_id = B.user_id
     ''').fetchall()
 
     conn.commit()
@@ -46,7 +49,8 @@ with open('./'+ db + '/tweet.json', 'w') as outfile:
     for tweet in twtdata:
         json.dump(tweet, outfile)
         outfile.write('\n')
-        
+
+
 # gets all user profiles from the database
 def get_all_users( json_str = False ):
     conn.row_factory = sqlite3.Row # This enables column access by name: row['column_name'] 
