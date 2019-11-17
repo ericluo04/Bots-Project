@@ -50,6 +50,7 @@ python train.py
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\3. HK Bots\Scraping_Hacks"
 python users_CSV.py
 python twitter_friends_graph_script.py "users.csv" 1 10000 3000
+```
 2. Build the retweet graph. First, create a .csv file with information about retweet interactions between users in your database. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\3. HK Bots"
