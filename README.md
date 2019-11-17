@@ -45,9 +45,9 @@ cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\trainin
 python train.py
 ```
 ## Bots (Folder 3) 
-1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph.
+1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph. The first number represents the batch number (starting at 1); the second number, the batch size; and the third number, the maximum number of friends before requesting the API. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\3. HK Bots\Scraping_Hacks"
 python users_CSV.py
-python twitter_friends_graph_script.py "users.csv" 1 500 3000
+python twitter_friends_graph_script.py "users.csv" 1 10000 3000
 ```
