@@ -44,3 +44,10 @@ python balance.py
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
 python train.py
 ```
+## Bots (Folder 3) 
+1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph.
+```
+cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\3. HK Bots\Scraping_Hacks"
+python users_CSV.py
+python twitter_friends_graph_script.py "users.csv" 1 500 3000
+```
