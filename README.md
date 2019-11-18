@@ -46,7 +46,7 @@ python train.py
 ```
 3. Extract user polarities. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value in model.py and helper_text.py (the main_clean function near the bottom). 
 ```
-python
+python get_polarity.py
 ```
 ## Bots (Folder 3) 
 1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph. The first number represents the batch number (starting at 1); the second number, the batch size; and the third number, the maximum number of friends before requesting the API. 
