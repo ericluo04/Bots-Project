@@ -44,7 +44,7 @@ python balance.py
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
 python train.py
 ```
-3. Extract user polarities. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value. 
+3. Extract user polarities. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value in model.py and helper_text.py (the main_clean function). 
 ```
 python
 ```
