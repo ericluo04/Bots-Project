@@ -48,137 +48,138 @@ INACCESSIBLE=[]
 start =time.time()
 count=0
 for user in toquery_sn:
-	keepgoing=True
-	accessible=True
-	count+=1
-	print("at user number ", count)
-	ufriends=[]
-	oufriends=[]
-	
-	### Go via the mobile twitter site instead of twitter.com. This version returns cursors in Json response to 
-	### iterate through pages of friends for a user.
-	url='https://mobile.twitter.com/'+user+'/following'
-	
-	### Headers 
-	opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookieJar))
-	headers = [
-		('Host', "twitter.com"),
-		('User-Agent', "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"),
-		('Accept', "application/json, text/javascript, */*; q=0.01"),
-		('Accept-Language', "de,en-US;q=0.7,en;q=0.3"),
-		('X-Requested-With', "XMLHttpRequest"),
-		('Referer', url),
-		('Connection', "keep-alive")
-	]
-	opener.addheaders = headers
+        keepgoing=True
+        accessible=True
+        count+=1
+        print("at user number ", count)
+        ufriends=[]
+        oufriends=[]
+        
+        ### Go via the mobile twitter site instead of twitter.com. This version returns cursors in Json response to 
+        ### iterate through pages of friends for a user.
+        url='https://mobile.twitter.com/'+user+'/following'
+        
+        ### Headers 
+        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookieJar))
+        headers = [
+                ('Host', "twitter.com"),
+                ('User-Agent', "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"),
+                ('Accept', "application/json, text/javascript, */*; q=0.01"),
+                ('Accept-Language', "de,en-US;q=0.7,en;q=0.3"),
+                ('X-Requested-With', "XMLHttpRequest"),
+                ('Referer', url),
+                ('Connection', "keep-alive")
+        ]
+        opener.addheaders = headers
 
-	## Try querying first 40 friends screen_names
-	try :
+        ## Try querying first 40 friends screen_names
+        try :
 
-		response = opener.open(url)   
-		jsonResponse = response.read()  
-		res=jsonResponse.decode().split('\n')
+                response = opener.open(url)   
+                jsonResponse = response.read()  
+                res=jsonResponse.decode().split('\n')
 
-		### Parse JSON code to uncover latest number of friends of that user
-		try :
-			nfriends=[int(''.join(i.split('"count">')[1].split('</span>')[0].split('.'))) for i in res if '<td class="info"><span class="count">' in i ][0]
-		except Exception as e: ##protected or suspended user
-			print('Error occcured: ', e)
-			accessible=False
-			INACCESSIBLE.append(toquery[count-1])
-		
-		if(accessible):
-			
-			### If this number of friends is above the thr, put this user in the API query queue
-			if(nfriends>=thr_friends):
-				API.append(toquery[count-1])
-				keepgoing = False
-				cnext=[]
-				
-			### Else parse JSON responde to get friends and find cursor to next page
-			else:
-				ufriends+=[i.split('/follow/')[1].split('"')[0] for i in res if '/i/guest/follow/' in i ]
-				cnext=[i.split('cursor=')[1].split('"')[0] for i in res if user+'/following?cursor=' in i]
-				print('already got ', len(ufriends), ' friends')
+                ### Parse JSON code to uncover latest number of friends of that user
+                try :
+                        nfriends=[int(''.join(i.split('"count">')[1].split('</span>')[0].split('.'))) for i in res if '<td class="info"><span class="count">' in i ][0]
+                except Exception as e: ##protected or suspended user
+                        print('Error occcured: ', e)
+                        accessible=False
+                        INACCESSIBLE.append(toquery[count-1])
+                
+                if(accessible):
+                        
+                        ### If this number of friends is above the thr, put this user in the API query queue
+                        if(nfriends>=thr_friends):
+                                API.append(toquery[count-1])
+                                keepgoing = False
+                                cnext=[]
+                                
+                        ### Else parse JSON responde to get friends and find cursor to next page
+                        else:
+                                ufriends+=[i.split('/follow/')[1].split('"')[0] for i in res if '/i/guest/follow/' in i ]
+                                cnext=[i.split('cursor=')[1].split('"')[0] for i in res if user+'/following?cursor=' in i]
+                                print('already got ', len(ufriends), ' friends')
 
-	except Exception as e:
-	
-		if(accessible):
-			if(e.code==404):
-				keepgoing=False
-				
-	
-	### Keep iterating through pages as long as we find results
-	if (len(cnext)>0 and keepgoing and accessible):
-		cursor=cnext[0]
+        except Exception as e:
+        
+                if(accessible):
+                        if(e.code==404):
+                                keepgoing=False
+                                
+        
+        ### Keep iterating through pages as long as we find results
+        if (len(cnext)>0 and keepgoing and accessible):
+                cursor=cnext[0]
 
-		### Identical to first query
-		while True:
-			
-			### Update url with cursor to return results of new pages 
-			url='https://mobile.twitter.com/'+user+'/following?cursor='+cursor
-			opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookieJar))
-			headers = [
-				('Host', "twitter.com"),
-				('User-Agent', "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"),
-				('Accept', "application/json, text/javascript, */*; q=0.01"),
-				('Accept-Language', "de,en-US;q=0.7,en;q=0.3"),
-				('X-Requested-With', "XMLHttpRequest"),
-				('Referer', url),
-				('Connection', "keep-alive")
-			]
-			response = opener.open(url)   
-			jsonResponse = response.read()  
-			res=jsonResponse.decode().split('\n')
-			ufriends+=[i.split('/follow/')[1].split('"')[0] for i in res if '/i/guest/follow/' in i ]
-			cnext=[i.split('cursor=')[1].split('"')[0] for i in res if user+'/following?cursor=' in i]
-			if (len(cnext)>0):
-				cursor=cnext[0]
-			else:
-				break
-			print('already got ', len(ufriends), ' friends')
+                ### Identical to first query
+                while True:
+                        
+                        ### Update url with cursor to return results of new pages 
+                        url='https://mobile.twitter.com/'+user+'/following?cursor='+cursor
+                        opener = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(cookieJar))
+                        headers = [
+                                ('Host', "twitter.com"),
+                                ('User-Agent', "Mozilla/5.0 (Windows NT 6.1; Win64; x64)"),
+                                ('Accept', "application/json, text/javascript, */*; q=0.01"),
+                                ('Accept-Language', "de,en-US;q=0.7,en;q=0.3"),
+                                ('X-Requested-With', "XMLHttpRequest"),
+                                ('Referer', url),
+                                ('Connection', "keep-alive")
+                        ]
+                        
+                        try :
+                                response = opener.open(url)
+                        except Exception as e:
+                                print("The Twitter servers are up, but overloaded with requests. Will try again in 20 seconds.")
+                                time.sleep(20)                                     
+                        jsonResponse = response.read()  
+                        res=jsonResponse.decode().split('\n')
+                        ufriends+=[i.split('/follow/')[1].split('"')[0] for i in res if '/i/guest/follow/' in i ]
+                        cnext=[i.split('cursor=')[1].split('"')[0] for i in res if user+'/following?cursor=' in i]
+                        if (len(cnext)>0):
+                                cursor=cnext[0]
+                        else:
+                                break
+                        print('already got ', len(ufriends), ' friends')
 
-			### Exited loop, write results in a file
-	if(keepgoing):
-		
-		### Append a line to the output file with user u friends. First element in the line is the user u. 
-		### Then all his friends.This file contains only screen_names.
-		with open('./friends_collected_'+str(date)+'_'+str(batch_number)+'.csv', 'a') as fr:
-			line = user
-			if(len(ufriends) > 0):
-				line += ';'
-				line += ';'.join(ufriends)
-			else:
-				line += ';'
-			fr.write(line)
-			fr.write('\n')
-		fr.close()
+                        ### Exited loop, write results in a file
+        if(keepgoing):
+                
+                ### Append a line to the output file with user u friends. First element in the line is the user u. 
+                ### Then all his friends.This file contains only screen_names.
+                with open('./friends_collected_'+str(date)+'_'+str(batch_number)+'.csv', 'a') as fr:
+                        line = user
+                        if(len(ufriends) > 0):
+                                line += ';'
+                                line += ';'.join(ufriends)
+                        else:
+                                line += ';'
+                        fr.write(line)
+                        fr.write('\n')
+                fr.close()
 
-		### Subset of all the friends of user u which are in the mapper, hence in our subset of studied users.
-		### Here the output is a file with users_ids, and only users in our dataset. 
-		### Hence a subgraph of the friends graph
+                ### Subset of all the friends of user u which are in the mapper, hence in our subset of studied users.
+                ### Here the output is a file with users_ids, and only users in our dataset. 
+                ### Hence a subgraph of the friends graph
 
-		oufriends=[str(mapper[i]) for i in ufriends if i in mapper]
-		with open('./friends_collected_'+str(date)+'_'+str(batch_number)+'_IDS.csv', 'a') as fri:
-			line = str(mapper[user])
-			if(len(oufriends) > 0):
-				line += ';'
-				line += ';'.join(oufriends)
-			else:
-				line += ';'
-			fri.write(line)
-			fri.write('\n')
-		fri.close()
+                oufriends=[str(mapper[i]) for i in ufriends if i in mapper]
+                with open('./friends_collected_'+str(date)+'_'+str(batch_number)+'_IDS.csv', 'a') as fri:
+                        line = str(mapper[user])
+                        if(len(oufriends) > 0):
+                                line += ';'
+                                line += ';'.join(oufriends)
+                        else:
+                                line += ';'
+                        fri.write(line)
+                        fri.write('\n')
+                fri.close()
 
 
 print('Took ', time.time()-start)
 
 ### write files to query via API and Inaccessible users to double check
 print('remains to query ', len(API), ' via the API')
-writeCSVFile([i[0] for i in API],'toquery_viaAPI_'+str(date)+'_'+str(batch_number)+'.csv')
+writeCSVFile([i[0] for i in API], 'toquery_viaAPI_'+str(date)+'_'+str(batch_number)+'.csv')
 print('inaccesible because suspended or protected or failure ', len(INACCESSIBLE))
-writeCSVile([i[0] for i in INACCESSIBLE],'failed_to_query_'+str(date)+'_'+str(batch_number)+'.csv')
-
-
-
-
+writeCSVFile([i[0] for i in INACCESSIBLE], 'failed_to_query_'+str(date)+'_'+str(batch_number)+'.csv')

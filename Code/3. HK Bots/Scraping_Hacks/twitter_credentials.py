@@ -1,8 +1,6 @@
-################################################################################
-##################### Fill up you Twitter Credentials ##########################
- twitter_auth = {
-     'consumer_key': 'REPLACE_WITH_YOUR_CONSUMER_KEY',
-     'consumer_secret': 'REPLACE_WITH_YOUR_CONSUMER_SECRET_KEY',
-     'access_token': 'REPLACE_WITH_YOUR_ACCESS_TOKEN',
-     'access_token_secret': 'REPLACE_WITH_YOUR_ACCESS_SECRET_TOKEN',
-   }
+twitter_auth = {
+     'consumer_key': 'gv0drQaVIyLtcyW6yt5MP1KEr',
+     'consumer_secret': 'iCVvCoUlBQjUgRqUWNsxOPfxBVkYJlmysasxhxDK5DeRytoXwS',
+     'access_token': '1172350460620988416-XQTnlpU6rg8uCRkXLL46vvlhN1DdH3',
+     'access_token_secret': 'tpoNpC2wgD1UloGes20N3l28O5Z8ubCYKJO1dsuMXfBHX',
+}

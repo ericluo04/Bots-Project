@@ -8,3 +8,6 @@ Code/1. HK Dataset/twitter_credentials.py
 Code/2. HK Training/polarities/polarities.csv
 Code/2. HK Training/polarities/Final_weights/final_weights.hdf5
 Code/2. HK Training/training/Data/modeling_1.csv
+Code/3. HK Bots/Scraping_Hacks/twitter_credentials.py
+*.npy
+*.csv

@@ -68,14 +68,17 @@ def transform_s(twt, seq_len):
     return(twt)
 
 def main_clean(twt):
+    # REPLACE THIS!
+    seq_len = 18
+    
     #segment
     twt_s = process(twt)
     #clean
     twt = clean(twt)
     twt_s = clean(twt_s)
     #transform
-    twt = transform(twt, 20)
-    twt_s = transform_s(twt_s, 20)
+    twt = transform(twt, seq_len)
+    twt_s = transform_s(twt_s, seq_len)
     #make x 
     x = [twt, twt_s]
     return(x)

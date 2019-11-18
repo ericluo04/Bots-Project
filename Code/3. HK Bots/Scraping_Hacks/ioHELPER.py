@@ -12,7 +12,7 @@ def readCSVFile(path):
 			res.append(line)
 	return res;
 
-def writeCSVFile(path, list):
+def writeCSVFile(list, path):
 	file = open(path, 'w')
 	for i in list:
 		line = str(i)

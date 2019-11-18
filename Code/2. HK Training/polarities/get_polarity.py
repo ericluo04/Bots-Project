@@ -18,23 +18,12 @@ from model import load_model
 
 model = load_model()
 
-
-#Example
-print('Example: ')
-twt = 'RT @US_Army_Vet: Americans First In Jobs &amp; In Security! VOTE TRUMP For Our Kids Future! @KimEstes20 @trumpkin007 @SpecialKMB1969 #USA https…'
-print(twt)
-x, x_s = main_clean(twt)
-#predict
-dem_pol = model.predict([x, x_s])[:,1]
-print('the probability this tweet is democrat is ', dem_pol[0])
-
-
 # In[16]:
 
 
 #get list of files in our directory so we can loop through them 
 
-path = r"C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\1. HK Dataset\HK English"
+path = "C:/Users/ericluo04/Documents/GitHub/Bots-Project/Code/1. HK Dataset/HK English/"
 all_files = [f for f in listdir(path) if isfile(join(path, f))]
 
 print('files are: ', all_files)
@@ -51,17 +40,17 @@ def update(users, tweets):
     '''
     bar = progressbar.ProgressBar()
     for twt in bar(tweets):
-        id_ = twt['user']['id']
+        id_ = twt['user_id']
         u = dict()
         u['id'] = id_
-        u['n_followers'] = twt['user']['followers_count']
-        u['description'] = twt['user']['description']
-        u['n_friends'] = twt['user']['friends_count']
-        u['location'] = twt['user']['location']
-        u['name'] = twt['user']['name']
-        u['screen_name'] = twt['user']['screen_name']
-        u['n_tweets_user'] = twt['user']['statuses_count']
-        u['created_at'] = twt['user']['created_at']
+        u['n_followers'] = twt['followers_count']
+        u['description'] = twt['description']
+        u['n_friends'] = twt['friends_count']
+        u['location'] = twt['location']
+        u['name'] = twt['name']
+        u['screen_name'] = twt['screen_name']
+        u['n_tweets_user'] = twt['statuses_count']
+        u['created_at'] = twt['created_at']
         #here we want to keep track of how many tweets are used to compute the polarity
         try:
             u['n_tweets_model'] = users[id_]['n_tweets_model'] + 1

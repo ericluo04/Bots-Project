@@ -28,7 +28,7 @@ def get_all_tweets( json_str = False ):
     db = conn.cursor()
 
     rows = db.execute('''
-    SELECT A.tweet_id, A.user_id, A.screen_name, A.created_at, A.text, A.lang, B.description
+    SELECT A.tweet_id, A.user_id, A.screen_name, A.created_at, A.text, A.lang, B.description, B.followers_count, B.friends_count, B.location, B.name, B.screen_name, B.statuses_count, B.created_at
     FROM tweet A
     LEFT JOIN user_profile B on A.user_id = B.user_id
     ''').fetchall()

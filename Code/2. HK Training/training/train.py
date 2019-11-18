@@ -77,6 +77,7 @@ test_X_s = X_s[split:,:]
 # In[270]:
 
 seq_len = train_X.shape[1]
+
 #earlystopping
 es = EarlyStopping(monitor='val_loss',
                               min_delta=0,
@@ -132,4 +133,7 @@ test_pred = (test_pred[:,0] <= 0.5).astype(int)
 print("test set accuracy: ", float(sum(test_Y == test_pred)) / test_Y.shape[0])
 
 print("base line accuracy: ", 1 - sum(Y[:split,])/len(Y[:split,]))
+
+print("seq_len: ", seq_len)
+
 
