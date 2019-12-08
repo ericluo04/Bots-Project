@@ -23,6 +23,10 @@ python search_userextraction.py twitter_credentials.py "HK English"
 ```
 python export_tweets_users.py "HK English"
 ```
+9. If necessary, remove tweets with duplicate text values. Duplication could occur when multiple users retweet the same tweet or when activists copy and paste messages. Change the path file first. 
+```
+python no_dups_tweets.py
+```
 
 ## Labeling Tweets (Folder 2) 
 
@@ -46,7 +50,12 @@ python train.py
 ```
 3. Extract user polarities. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value in model.py and helper_text.py (the main_clean function near the bottom). 
 ```
+cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\polarities"
 python get_polarity.py
+```
+4. Extract tweet-level polarities. This will be the "master file."
+```
+python master_polarity.py
 ```
 ## Bots (Folder 3) 
 1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph. The first number represents the batch number (starting at 1); the second number, the batch size; and the third number, the maximum number of friends before requesting the API. 
