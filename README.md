@@ -23,7 +23,7 @@ python search_userextraction.py twitter_credentials.py "HK English"
 ```
 python export_tweets_users.py "HK English"
 ```
-9. If necessary, remove tweets with duplicate text values. Duplication could occur when multiple users retweet the same tweet or when activists copy and paste messages. Change the path file first. 
+9. If necessary, remove tweets with duplicate text values. Duplication could occur when multiple users retweet the same tweet or when activists copy and paste messages. Change the path file variable first. 
 ```
 python no_dups_tweets.py
 ```
