@@ -53,7 +53,7 @@ python train.py
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\polarities"
 python get_polarity.py
 ```
-4. Extract tweet-level polarities. This will be the "master file."
+4. Extract tweet-level polarities. This will be the "master file." You can access previous master files from various topics [here](https://drive.google.com/drive/u/0/folders/11y8ULyX0mLi9vp-1_Ofz3EvN8rFRdl6U). 
 ```
 python master_polarity.py
 ```
