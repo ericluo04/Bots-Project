@@ -132,5 +132,5 @@ def get_data(int_files, n_max, party = None):
                     break
 
 n_max = 10000000000 #max_number of tweets
-int_files = [all_files[1]]
+int_files = [all_files[2]]
 get_data(int_files, n_max)

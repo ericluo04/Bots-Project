@@ -1,12 +1,13 @@
 import json
 import re
 import pandas as pd
+import pickle
 
 # CHANGE PATH ACCORDINGLY
 path = "C:/Users/ericluo04/Documents/GitHub/Bots-Project/Code/"
 
 # open up tweet json file
-with open(path + "1. HK Dataset/HK English/tweet.json") as json_file:
+with open(path + "1. HK Dataset/HK English/tweet_nodups.json") as json_file:
     data = [json.loads(line) for line in json_file]
 
 # create new key value for retweeted screen name if tweet is a retweet
@@ -32,4 +33,4 @@ hkdf_forcsvoutput = hkdf_short.groupby(hkdf_short.columns.tolist()).size().reset
 
 # save columns of interest and export as csv
 hkdf_forcsvoutput = hkdf_forcsvoutput[['user_id', 'retweet_user_id', 'num_retweets']]
-hkdf_forcsvoutput.to_csv(path + "3. HK Bots/RT_graphs/DB_NAME_G0_RT_GRAPH.csv", index=False)
+hkdf_forcsvoutput.to_csv(path + "3. HK Bots/RT_graphs/G0_RT_GRAPH.csv", index=False, header=False, sep=';')
