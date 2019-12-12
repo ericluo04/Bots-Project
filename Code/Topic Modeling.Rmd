@@ -19,6 +19,8 @@ library(igraph)
 library(tidyr)
 library(dplyr)
 library(wordcloud)
+library(extrafont)
+windowsFonts("LM Roman 12" = windowsFont("LM Roman 12"))
 ```
 
 CLEAN AND READ IN DATA
@@ -41,7 +43,6 @@ hist(polarities$n_tweets_user / 1000000, main = "Histogram of Tweet Count (Milli
 PREPROCESSING
 stemming/stopword removal, lowercase, punctuation, etc.
 ```{r}
-# bad, stemmed, stop words removed
 proc <- textProcessor(polarSubset$tweet, metadata=polarSubset, 
                       lowercase = TRUE, removestopwords = TRUE, removenumbers = TRUE, 
                       removepunctuation = TRUE, stem = TRUE, wordLengths = c(3, Inf), 
@@ -68,6 +69,7 @@ labelTopics(STM2, c(1, 2))
 thoughts1 <- findThoughts(STM2, texts = out$meta$tweet, n = 4, topics = 1)$docs[[1]]
 thoughts2 <- findThoughts(STM2, texts = out$meta$tweet, n = 4, topics = 2)$docs[[1]]
 par(mfrow = c(1, 2), mar = c(0.5, 0.5, 1, 0.5))
+par(family = "LM Roman 12")
 plotQuote(thoughts1, width = 40, main = "Topic 1")
 plotQuote(thoughts2, width = 40, main = "Topic 2")
 ```
@@ -85,8 +87,6 @@ summary(prep, topics = 1)
 ```
 
 ```{r}
-library(extrafont)
-windowsFonts("LM Roman 12" = windowsFont("LM Roman 12"))
 par(family = "LM Roman 12")
 plot(prep, "polarity", method = "continuous", topics = c(1, 2), xaxt = "n", 
      printlegend = T, xlab = "Polarity", linecol = c("red3", "royalblue4"))
@@ -99,12 +99,13 @@ polar_out <- prep$data$polarity
 topic1 <- STM2$theta[, 1]
 topic2 <- STM2$theta[, 2]
 
-out <- data.frame(polar_out, topic1, topic2)
-out$polar2 <- out$polar_out^2
-out$polar3 <- out$polar_out^3
+regdata <- data.frame(polar_out, topic1, topic2)
+out$polar2 <- regdata$polar_out^2
+out$polar3 <- regdata$polar_out^3
 
-reg1 <- lm(topic1 ~ poly(polar_out, degree=3), data=out)
-reg2 <- lm(topic2 ~ poly(polar_out, degree=3), data=out)
+reg1 <- lm(topic1 ~ poly(polar_out, degree=3), data=regdata)
+summary(reg1)
+reg2 <- lm(topic2 ~ poly(polar_out, degree=3), data=regdata)
 library(stargazer)
 stargazer(reg1, title="Regressing Topic Model Likelihood on Polarity", out="polarityReg1.tex", align=F,
           dep.var.labels = "Topic 1 Likelihood", covariate.labels = c("Polarity", "Polarity Squared", "Polarity Cubed"),
