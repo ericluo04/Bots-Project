@@ -1,0 +1,117 @@
+---
+title: 'S&DS 491: Topic Modeling'
+author: "Lan Luo"
+date: "December 9, 2019"
+output:
+  word_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+gc()
+rm(list = ls())
+library(stm)
+library(igraph)
+library(tidyr)
+library(dplyr)
+library(wordcloud)
+```
+
+CLEAN AND READ IN DATA
+```{r}
+polarities <- rbind(read.csv("C:/Users/ericluo04/Documents/GitHub/Bots-Project/Code/2. HK Training/polarities/master_new_1.csv", header = TRUE, stringsAsFactors = FALSE), 
+                    read.csv("C:/Users/ericluo04/Documents/GitHub/Bots-Project/Code/2. HK Training/polarities/master_new_2.csv", header = TRUE, stringsAsFactors = FALSE))
+
+mean(polarities$polarity)
+median(polarities$polarity)
+
+polarities$pro <- ifelse(polarities$polarity<=.5, 1, 0)
+polarSubset <- polarities[sample(nrow(polarities), 50000), ]
+
+hist(polarities$polarity, main = "Histogram of Polarities", xlab = "Polarity", breaks=20)
+hist(polarities$n_followers / 1000000, main = "Histogram of Follower Count (Millions)", xlab = "Follower Count (Millions)", breaks=60)
+hist(polarities$n_friends / 100000, main = "Histogram of Friend Count (Tens of Thousands)", xlab = "Friend Count (Tens of Thousands)", breaks=60)
+hist(polarities$n_tweets_user / 1000000, main = "Histogram of Tweet Count (Millions)", xlab = "Tweet Count (Millions)", breaks=60)
+```
+
+PREPROCESSING
+stemming/stopword removal, lowercase, punctuation, etc.
+```{r}
+# bad, stemmed, stop words removed
+proc <- textProcessor(polarSubset$tweet, metadata=polarSubset, 
+                      lowercase = TRUE, removestopwords = TRUE, removenumbers = TRUE, 
+                      removepunctuation = TRUE, stem = TRUE, wordLengths = c(3, Inf), 
+                      customstopwords = c("hongkong", "hong", "kong", "hongkong", "protest", "hongkongprotest", "hkprotest", "hk", "hker", "just", "can", "will", "use", "also", "make", "still"), language = "en")
+
+#structure and index for usage in the stm model. Verify no-missingness. can remove low frequency words using 'lower.thresh' option. See ?prepDocuments for more info
+out <- prepDocuments(proc$documents, proc$vocab, proc$meta, 
+                     lower.thresh = 2, #removes words that do not occurr in > N documents
+                     upper.thresh = Inf, subsample = NULL)
+```
+
+```{r}
+STM2 <- stm(documents=out$documents, vocab=out$vocab, data=out$meta,
+            K=2, #number of topics
+            max.em.its=75, 
+            prevalence =~ polarity,
+            interactions=FALSE,
+            init.type="Spectral")
+```
+
+```{r}
+labelTopics(STM2, c(1, 2))
+
+thoughts1 <- findThoughts(STM2, texts = out$meta$tweet, n = 4, topics = 1)$docs[[1]]
+thoughts2 <- findThoughts(STM2, texts = out$meta$tweet, n = 4, topics = 2)$docs[[1]]
+par(mfrow = c(1, 2), mar = c(0.5, 0.5, 1, 0.5))
+plotQuote(thoughts1, width = 40, main = "Topic 1")
+plotQuote(thoughts2, width = 40, main = "Topic 2")
+```
+
+```{r}
+plot(STM2, type = "summary")
+cloud(STM2, topic = 1, scale = c(2, 0.5))
+cloud(STM2, topic = 2, scale = c(2, 0.5))
+```
+
+
+```{r}
+prep <- estimateEffect(1:2 ~ poly(polarity, degree=3), STM2, meta = out$meta, uncertainty = "Global")
+summary(prep, topics = 1)
+```
+
+```{r}
+library(extrafont)
+windowsFonts("LM Roman 12" = windowsFont("LM Roman 12"))
+par(family = "LM Roman 12")
+plot(prep, "polarity", method = "continuous", topics = c(1, 2), xaxt = "n", 
+     printlegend = T, xlab = "Polarity", linecol = c("red3", "royalblue4"))
+seq <- seq(from =0, to = 1, by = .1)
+axis(1,at = as.numeric(seq) - min(as.numeric(seq)))
+```
+
+```{r}
+polar_out <- prep$data$polarity
+topic1 <- STM2$theta[, 1]
+topic2 <- STM2$theta[, 2]
+
+out <- data.frame(polar_out, topic1, topic2)
+out$polar2 <- out$polar_out^2
+out$polar3 <- out$polar_out^3
+
+reg1 <- lm(topic1 ~ poly(polar_out, degree=3), data=out)
+reg2 <- lm(topic2 ~ poly(polar_out, degree=3), data=out)
+library(stargazer)
+stargazer(reg1, title="Regressing Topic Model Likelihood on Polarity", out="polarityReg1.tex", align=F,
+          dep.var.labels = "Topic 1 Likelihood", covariate.labels = c("Polarity", "Polarity Squared", "Polarity Cubed"),
+          omit.stat=c("ser", "f"))
+stargazer(reg2, title="Regressing Topic Model Likelihood on Polarity", out="polarityReg2.tex", align=F,
+          dep.var.labels = "Topic 2 Likelihood", covariate.labels = c("Polarity", "Polarity Squared", "Polarity Cubed"),
+          omit.stat=c("ser", "f"))
+
+```
+
