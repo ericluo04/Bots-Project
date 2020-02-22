@@ -28,7 +28,7 @@ python export_tweets_users.py "HK English"
 python no_dups_tweets.py
 ```
 
-#### Summary Statistics
+### Summary Statistics
 Number of Tweets: 2,334,689  
 Number of Users: 523,646  
 Number of Unique Tweets: 414,963  
