@@ -31,7 +31,7 @@ python no_dups_tweets.py
 ### Summary Statistics
 Number of Tweets: 2,334,689  
 Number of Users: 523,646  
-Number of Unique Tweets:  
+Number of Unique Tweets: 414,963  
 
 ## Labeling Tweets (Folder 2) 
 
