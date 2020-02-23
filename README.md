@@ -64,7 +64,7 @@ After Balancing:
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
 python train.py
 ```
-3. Extract user polarities. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value in model.py and helper_text.py (the main_clean function near the bottom). 
+3. Move your dictionaries from training>Dictionary to polarities>Dictionary. Replace the new weights in polarities>Final_weights and rename them to *final_weights.hdf5*. Change the seq_len value in model.py and helper_text.py (the main_clean function near the bottom). Now, run the code below to extract user polarities. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\polarities"
 python get_polarity.py
