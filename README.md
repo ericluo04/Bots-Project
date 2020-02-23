@@ -74,8 +74,8 @@ python get_polarity.py
 python master_polarity.py
 ```
 #### Summary Statistics:
-- test set accuracy:  1.0
-- base line accuracy:  1.0
+- Test Set Accuracy:  100%
+- Base Line Accuracy:  100%
 - seq_len:  18
 
 ## Bots (Folder 3) 
