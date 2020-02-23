@@ -49,8 +49,8 @@ python balance.py
 #### Summary Statistics:
 Before Balancing:
 - Anti: 14.5% (27,203)
-- Pro: 85.5% (160,704)  
-After Balancing:  
+- Pro: 85.5% (160,704) 
+After Balancing:
 - Anti: 50% (27,203)
 - Pro: 50% (27,203)
 
