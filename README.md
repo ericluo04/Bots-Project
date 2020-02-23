@@ -46,6 +46,14 @@ python label.py
 python balance.py
 ```
 
+#### Summary Statistics:
+Before Balancing.
+- Anti: 14.5% (27,203)
+- Pro: 85.5% (160,704)
+After Balancing.
+- Anti: 50% (27,203)
+- Pro: 50% (27,203)
+
 ## Training the Neural Network (Folder 2) 
 1. Put the *labeled_data_balanced.csv* file in the Training>Data folder and rename it to *modeling_1.csv*.
 2. Now, train the CNN LSTM model. Take note of the seq_len value, which is hardcoded later in the get_polarity.py code. 
