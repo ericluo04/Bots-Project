@@ -73,6 +73,11 @@ python get_polarity.py
 ```
 python master_polarity.py
 ```
+#### Summary Statistics:
+- test set accuracy:  1.0
+- base line accuracy:  1.0
+- seq_len:  18
+
 ## Bots (Folder 3) 
 1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph. The first number represents the batch number (starting at 1); the second number, the batch size; and the third number, the maximum number of friends before requesting the API. 
 ```
