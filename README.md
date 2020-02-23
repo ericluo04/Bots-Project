@@ -48,12 +48,12 @@ python balance.py
 
 #### Summary Statistics:
 Before Balancing:
-- Anti: 14.5% (27,203)
-- Pro: 85.5% (160,704)
+- Anti: 7.00% (12,100)
+- Pro: 93.00% (160,704)
 
 After Balancing:
-- Anti: 50% (27,203)
-- Pro: 50% (27,203)
+- Anti: 50% (12,100)
+- Pro: 50% (12,100)
 
 *Note:* This labeling process is extremely context dependent - carefully study your issue's rhetoric on Twitter to craft a representative list of pro and anti hashtags that can reliably reveal one's signal on your issue. With the Hong Kong protests, the discourse on Twitter leans heavily towards pro-Hong Kong. To increase the training samples on the pro-China side, I include several broad hashtags that may have introduced some noise (e.g. riot, riots, rioter, rioters, mob, mobs, thug, thugs). However, given the nature of discussion on the Hong Kong issue, the assumption that these hashtags can expose a pro-China account seems reasonable. Otherwise, I would have had only 3,487 pro-China training examples. Especially with NLP tools, more data is generally preferred, despite the possibility of a more noisy sample [(Banko and Brill, 2001)](https://www.aclweb.org/anthology/P01-1005.pdf).
 
