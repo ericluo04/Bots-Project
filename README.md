@@ -89,8 +89,7 @@ python twitter_friends_graph_script.py "users.csv" 1 10000 3000
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\3. HK Bots"
 python retweetCSV.py
 ```
-3. 
-Run the code to identify the bots. More information on parameters in README_bot_code.docx. 
+3. Run the code to identify the bots. More information on parameters in README_bot_code.docx. 
 ```
 python MPI_graphCut.py 1 100 100 1 HKProtests 'normal' .8 .6 3 0
 ```
