@@ -58,8 +58,8 @@ After Balancing:
 *Note:* This labeling process is extremely context dependent - carefully study your issue's rhetoric on Twitter to craft a representative list of pro and anti hashtags that can reliably reveal one's signal on your issue. With the Hong Kong protests, the discourse on Twitter leans heavily towards pro-Hong Kong. To increase the training samples on the pro-China side, I include several broad hashtags that may have introduced some noise (e.g. riot, riots, rioter, rioters, mob, mobs, thug, thugs). However, given the nature of discussion on the Hong Kong issue, the assumption that these hashtags can expose a pro-China account seems reasonable. Otherwise, I would have had only 3,487 pro-China training examples. Especially with NLP tools, more data is generally preferred, despite the possibility of a more noisy sample [(Banko and Brill, 2001)](https://www.aclweb.org/anthology/P01-1005.pdf).
 
 ## Training the Neural Network (Folder 2) 
-1. Put the *labeled_data_balanced.csv* file in the training>Data folder and rename it to *modeling_1.csv*.
-2. Now, train the CNN LSTM model. Take note of the seq_len value, which is hardcoded later in the get_polarity.py code. 
+1. Put the *labeled_data_balanced.csv* file in the training>Data folder and rename it to *modeling_1.csv*. 
+2. Now, train the CNN LSTM model. Make sure to change n_tweets at the beginning of this code to be greater than the number of your observations in your labeled data. Take note of the seq_len value, which is hardcoded later in the get_polarity.py code. 
 ```
 cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\training"
 python train.py
