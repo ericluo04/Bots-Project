@@ -70,6 +70,7 @@ cd "C:\Users\ericluo04\Documents\GitHub\Bots-Project\Code\2. HK Training\polarit
 python get_polarity.py
 ```
 4. Extract tweet-level polarities. This will be the "master file." You can access previous master files from various topics [here](https://drive.google.com/drive/u/0/folders/11y8ULyX0mLi9vp-1_Ofz3EvN8rFRdl6U). 
+5. If you would like to experiment with the trained model, there is a Jupyter notebook file (Test Model.ipynb) that can let you load your model and predict the sentiment of a provided tweet. For instance, you could predict the sentiment of gibberish (e.g. as;flih3hasf) to see the model's baseline bias. 
 ```
 python master_polarity.py
 ```
