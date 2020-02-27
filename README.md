@@ -74,8 +74,11 @@ python get_polarity.py
 python master_polarity.py
 ```
 #### Summary Statistics:
-- Test Set Accuracy:  100%
-- Base Line Accuracy:  100%
+Labeled Data by Description:
+- Test Set Accuracy:  85.08%
+- seq_len:  18
+Labeled Data by Tweet:
+- Test Set Accuracy:  85.08%
 - seq_len:  18
 
 ## Bots (Folder 3) 
