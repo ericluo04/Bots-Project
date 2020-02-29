@@ -79,6 +79,7 @@ python master_polarity.py
 Convolutional Neural Network: 
 - Test Set Accuracy:  84.67%
 - seq_len:  18
+
 Naive Bayes: 
 - Test Set Accuracy: 88.29%
 - Test Set Precision:  88.10%
