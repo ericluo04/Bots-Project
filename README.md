@@ -76,8 +76,13 @@ python master_polarity.py
 ```
 5. Run the Naive Bayes jupyter notebook file to compare the CNN's accuracy to that of a multinomial Naive Bayes model. Run the last cell to add in the Naive Bayes predicted probabilities to the master file. 
 #### Summary Statistics:
+Convolutional Neural Network: 
 - Test Set Accuracy:  84.67%
 - seq_len:  18
+Naive Bayes: 
+- Test Set Accuracy: 88.29%
+- Test Set Precision:  88.10%
+- Test Set Recall: 87.84%
 
 ## Bots (Folder 3) 
 1. Build the friends graph. The code for this is in *Scraping_Hacks*. First, create a .csv file with user information from your database: user_id, screen_name, friends_count, and followers_count. Next, build the graph. The first number represents the batch number (starting at 1); the second number, the batch size; and the third number, the maximum number of friends before requesting the API. 
