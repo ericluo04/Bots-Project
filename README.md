@@ -76,7 +76,7 @@ python master_polarity.py
 ```
 5. Run the Naive Bayes jupyter notebook file to compare the CNN's accuracy to that of a multinomial Naive Bayes model. Run the last cell to add in the Naive Bayes predicted probabilities to the master file. 
 #### Summary Statistics:
-- Test Set Accuracy:  85.08%
+- Test Set Accuracy:  84.67%
 - seq_len:  18
 
 ## Bots (Folder 3) 
