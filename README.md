@@ -75,7 +75,7 @@ python get_polarity.py
 python master_polarity.py
 ```
 5. Run the Naive Bayes jupyter notebook file to compare the CNN's accuracy to that of a multinomial Naive Bayes model. Run the last cell to add in the Naive Bayes predicted probabilities to the master file. 
-6. Run the Master Exploration jupyter notebook file to visualize basic statistics from the master file. 
+6. Run the Master Exploration jupyter notebook file to gather a basic understanding of your master file. 
 #### Summary Statistics:
 Convolutional Neural Network: 
 - Test Set Accuracy:  84.67%
