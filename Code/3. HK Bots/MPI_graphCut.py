@@ -18,7 +18,8 @@ from mpi4py import MPI
 ###################################################################################
 ################################# SETUP MPI #######################################
 ###################################################################################
-nproc = MPI.COMM_WORLD.Get_size() # Size of communicator
+#nproc = MPI.COMM_WORLD.Get_size() # Size of communicator
+nproc=6
 rank  = MPI.COMM_WORLD.Get_rank() # Ranks in communicator
 inode = MPI.Get_processor_name() # Node where this MPI process runs
 comm = MPI.COMM_WORLD
@@ -31,7 +32,7 @@ mu = float(sys.argv[1]) ##this is called gamma in the paper
 alpha1 = float(sys.argv[2]) ##alpha_1 in the paper
 alpha2 = float(sys.argv[3]) ##alpha_2 in the paper
 iterations = int( sys.argv[4]) ##number of iterations (=1 cut/classify iteration in paper)
-db = sys.aragv[5] ##name of the database/event studied (must match the DB_NAME name in RT_grahs/DB_NAME_G0_RT_GRAPH.csv)
+db = sys.argv[5] ##name of the database/event studied (must match the DB_NAME name in RT_grahs/DB_NAME_G0_RT_GRAPH.csv)
 mode = sys.argv[6] ##choose the prior to use : no prior, botometer scores, random scores, verified accounts, friends/fol ratio/score 
 alambda1 = float(sys.argv[7]) ##lamba11 parameter in paper, chosen equal to 0.8
 alambda2 = float(sys.argv[8])##lambda00 parameter in paper, chose equal to  0.6
@@ -57,7 +58,6 @@ if not os.path.exists('./network_piBots_'+db):
 all_users = sorted(list(G0.nodes()))
 totUsers = len(all_users)
 batch_size = int(totUsers/(nproc-1))
-
 
 ##non master processors compute the local probability of being on either side ot the cut
 all_users = sorted(list(G0.nodes()))

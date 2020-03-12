@@ -28,7 +28,8 @@ print('files are: ', all_files)
 tweet_id =dict()
 count = 0. #to track how many batches of data we visited 
 
-int_files = [all_files[1]] #choose the files we want to mine through
+# index 1 for with duplicates, index 2 for without
+int_files = [all_files[2]] #choose the files we want to mine through
 print('files used: ', int_files)
 
 def update(tweet_id, tweets):
@@ -86,9 +87,22 @@ np.save(file_name, tweet_id)
 
 master_file = pd.DataFrame.from_dict(tweet_id).T
 #dropping all rows with duplicate tweets
-master_file.drop_duplicates(subset = "tweet", keep = False, inplace = True) 
-#split dataframe into 2 to deal with row size limitations in excel
-master1, master2 = np.array_split(master_file, 2)
-#save as csv
-master1.to_csv('master_new_1.csv')
-master2.to_csv('master_new_2.csv')
+master_file.drop_duplicates(subset = "tweet", keep = False, inplace = True)
+
+# deal with excel row limitations
+rowlimit = 1048576
+if len(master_file.index) < rowlimit:
+    master_file.to_csv('master_new.csv')
+elif len(master_file.index) < 2 * rowlimit:
+    #split dataframe into 2 to deal with row size limitations in excel
+    master1, master2 = np.array_split(master_file, 2)
+    #save as csv
+    master1.to_csv('master_new_1.csv')
+    master2.to_csv('master_new_2.csv')
+else:
+    #split dataframe into 3 to deal with row size limitations in excel
+    master1, master2, master3 = np.array_split(master_file, 3)
+    #save as csv
+    master1.to_csv('master_new_1.csv')
+    master2.to_csv('master_new_2.csv')
+    master3.to_csv('master_new_3.csv')

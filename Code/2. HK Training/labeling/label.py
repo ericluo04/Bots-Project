@@ -15,6 +15,9 @@ import os
 
 
 path = "/Users/ericluo04/Documents/GitHub/Bots-Project/Code/1. HK Dataset/HK English/"
+# create labeled data by hashtags in "description" or "tweets", you choose which!
+# recommended to use description if this produces enough labeled data
+method = "tweets"
 
 # In[17]:
 #seperate tweets into their users
@@ -62,7 +65,7 @@ def pro_anti(users):
     anti = []
     bar = progressbar.ProgressBar()
     for usr in bar(users.keys()):
-        description = str(users[usr]['tweets'])
+        description = str(users[usr][method])
         #print(description)
         #see if pro/anti/None
         ind = pro_or_anti(description)

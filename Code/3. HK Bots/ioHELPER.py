@@ -385,7 +385,7 @@ def readCSVFile_G(path):
 	for i in file:
 		if(len(i)>0):
 			split = i.split(';')
-			G.add_edge(int(split[0]),int(split[1]),weight = float(split[2]))		
+			G.add_edge(int(split[0]),float(split[1]),weight = float(split[2]))		
 	return G;
 
 def readCSVFile_Gzero(path):

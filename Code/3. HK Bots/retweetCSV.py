@@ -33,4 +33,4 @@ hkdf_forcsvoutput = hkdf_short.groupby(hkdf_short.columns.tolist()).size().reset
 
 # save columns of interest and export as csv
 hkdf_forcsvoutput = hkdf_forcsvoutput[['user_id', 'retweet_user_id', 'num_retweets']]
-hkdf_forcsvoutput.to_csv(path + "3. HK Bots/RT_graphs/G0_RT_GRAPH.csv", index=False, header=False, sep=';')
+hkdf_forcsvoutput.to_csv(path + "3. HK Bots/RT_graphs/HKProtests_G0_RT_GRAPH.csv", index=False, header=False, sep=';')

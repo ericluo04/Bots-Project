@@ -11,3 +11,6 @@ Code/2. HK Training/training/Data/modeling_1.csv
 Code/3. HK Bots/Scraping_Hacks/twitter_credentials.py
 *.npy
 *.csv
+*.hdf5
+*.hdf5
+Code/2. HK Training/training/model-checkpoint/weights-improvement-03-0.85.hdf5

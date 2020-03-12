@@ -17,7 +17,11 @@ no_dups.drop_duplicates(subset = "text", keep = False, inplace = True)
 no_json = no_dups.to_dict('records')
 
 # save tweets with no text duplicates as json file
+count = 0
 with open(path + '1. HK Dataset/HK English/' + 'tweet_nodups.json', 'w') as outfile:
     for tweet in no_json:
         json.dump(tweet, outfile)
         outfile.write('\n')
+        count+=1
+        
+print("Number of unique tweets: " + str(count))

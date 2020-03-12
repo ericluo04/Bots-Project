@@ -4,7 +4,7 @@
 import numpy as np
 from helper_data_formatting import get_xy
 
-n_tweets = 10000 #for example 
+n_tweets = 25000 #for example 
 X, X_s, Y, dictionary_size, dictionary_size_s, seq_len = get_xy(n_tweets)
 # ## CNN
 
@@ -112,7 +112,7 @@ model = Model(inputs=[inputs1, inputs2], outputs=outputs)
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy'])
 print(model.summary())
 #plot_model(model, show_shapes=True, to_file='multichannel.png')
-model.fit([train_X, train_X_s], train_Y, epochs=100, batch_size=256, callbacks=[es, save], 
+model.fit([train_X, train_X_s], train_Y, epochs=25, batch_size=256, callbacks=[es, save], 
     validation_split=0.2)
 
 # ## Testing
